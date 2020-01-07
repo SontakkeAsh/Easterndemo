@@ -1,0 +1,75 @@
+<h2>edit form</h2>
+
+  
+  <form (ngSubmit)="f.form.valid && updateEmployee()" #f="ngForm" novalidate>
+    <div class="form-group name">
+     
+      <input type="text"
+             class="form-control input"
+             id="id"
+             name="id"
+             [(ngModel)]="model2.id"
+             placeholder="id">
+    </div>
+    <div class="form-group name">
+      
+      <input type="text"
+             class="form-control input"
+             id="name"
+             name="name"
+             [(ngModel)]="model2.name"
+             placeholder="Name" #Name="ngModel"
+             [ngClass]="{ 'is-invalid': f.submitted && Name.invalid }"
+              minlength="4" required>
+    </div>
+    <div *ngIf="f.submitted && Name.invalid" class="invalid-feedback">
+        <div *ngIf="Name.errors.required"> Name is required</div>           
+    </div>
+    <div class="form-group name">
+      
+      <input type="text"
+             class="form-control input"
+             id="phone"
+             name="phone"
+             [(ngModel)]="model2.phone"
+             placeholder="phone" [pattern]="'[789][0-9]{9}'">
+    </div>
+  
+    <div class="form-group position">
+     
+        <input type="text"
+               class="form-control positionInput"
+               id="city"
+               name="city"
+               [(ngModel)]="model2.address.city"
+               placeholder="city">
+      </div>
+      <div class="form-group position">
+     
+        <input type="text"
+               class="form-control positionInput"
+               id="address_line1"
+               name="address_line1"
+               [(ngModel)]="model2.address.address_line1"
+               placeholder="address_line1">
+      </div>
+      <div class="form-group position">
+     
+        <input type="text"
+               class="form-control positionInput"
+               id="address_line2"
+               name="address_line2"
+               [(ngModel)]="model2.address.address_line2"
+               placeholder="address_line2">
+      </div>
+      <div class="form-group position">
+     
+        <input type="text"
+               class="form-control positionInput"
+               id="postal_code"
+               name="postal_code"
+               [(ngModel)]="model2.address.postal_code"
+               placeholder="postal_code">
+      </div>
+    <button type="submit">Update</button>
+  </form>

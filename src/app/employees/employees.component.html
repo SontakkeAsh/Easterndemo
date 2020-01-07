@@ -1,0 +1,173 @@
+<!-- 
+<div class="AddEmployeeTitleContainer">
+  <div class="addEmployeeTitleContainer">
+    <div >Add Employee</div>
+</div>
+<div class="addEmployeeBtnContainer">
+  <div class="addNewEmployeeBtn" (click)="addNewEmployeeBtn()">+</div>
+</div>
+</div>
+
+<div *ngIf="newEmployeeClicked">
+<div class="formWrapper">
+<form>
+  <div class="form-group name">
+   
+    <input type="text"
+           class="form-control input"
+           id="id"
+           name="id"
+           [(ngModel)]="model.id"
+           placeholder="id">
+  </div>
+  <div class="form-group name">
+   
+    <input type="text"
+           class="form-control input"
+           id="name"
+           name="name"
+           [(ngModel)]="model.name"
+           placeholder="Name">
+  </div>
+  <div class="form-group name">
+    
+    <input type="text"
+           class="form-control input"
+           id="phone"
+           name="phone"
+           [(ngModel)]="model.phone"
+           placeholder="phone">
+  </div>
+
+   <div class="form-group position">
+  
+    <input type="text"
+           class="form-control positionInput"
+           id="city"
+           name="city"
+           [(ngModel)]="model.city"
+           placeholder="city">
+  </div>
+  <div class="submitBtnContainer">
+    <button type="submit" class="saveBtn" (click)="addEmployee()">SAVE</button>
+  </div>
+</form>
+</div>
+</div>
+
+ -->
+<div class="tableWrapper">
+<div class="containerTitle">
+  <div class="title">Id</div>
+  <div class="title">Name</div>
+  <div class="title">Phone</div>
+  <div class="title">City</div>
+  <div class="title">Address1</div>
+  <div class="title">Address2</div>
+  <div class="title">Postal code</div>
+  <div class="title">Actions</div>
+
+ 
+</div>
+<br>
+<a routerLink='add'><button>Add Button</button></a><br><br>
+<input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search by name">
+<div class="containerListItems" *ngFor="let employee of employees | filter: searchText; let i = index">
+  <div class="one">{{employee.id}}</div>
+  <div class="two">{{employee.name}}</div>
+  <div class="two">{{employee.phone}}</div>
+  <div class="two">{{employee.address.city}}</div>
+  <div class="two">{{employee.address.address_line1}}</div>
+  <div class="two">{{employee.address.address_line2}}</div>
+  <div class="two">{{employee.address.postal_code}}</div>
+  <div class="three">
+    <!-- <a routerLink='edit'> -->
+    <button (click)="editEmployee(employee.id)">Edit</button>
+  <!-- </a> -->
+  </div>
+  <!-- <div class="four"></div> -->
+</div>
+
+
+
+<!-- <div *ngIf="newEmployeeClicked">
+<div class="editEmployeeTitleContainer" >
+  <div class="">Edit Employee</div>
+</div> 
+
+ <form name="form" (ngSubmit)="f.form.valid && updateEmployee()" #f="ngForm" novalidate>
+  <div class="form-group name">
+   
+    <input type="number"
+           class="form-control input"
+           id="id"
+           name="id"
+           [(ngModel)]="model2.id"
+           placeholder="id">
+  </div>
+  <div class="form-group name">
+    
+    <input type="text"
+           class="form-control input"
+           id="name"
+           name="name"
+           [(ngModel)]="model2.name"
+           placeholder="Name" #name="ngModel"
+           [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" minlength="5" required>
+  </div>
+     <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+        <div *ngIf="name.errors.required"> Name is required</div>
+    </div>
+    <div *ngIf="name.errors?.minlength">
+      Name must be at least 5 characters long.
+ </div>
+  <div class="form-group name">
+    
+    <input type="tel"
+           class="form-control input"
+           id="phone"
+           name="phone"
+           [(ngModel)]="model2.phone"
+           placeholder="phone">
+  </div>
+
+   <div class="form-group position">
+   
+    <input type="text"
+           class="form-control positionInput"
+           id="city"
+           name="city"
+           [(ngModel)]="model2.address.city"
+           placeholder="city">
+  </div>
+  <div class="form-group position">
+   
+    <input type="text"
+           class="form-control positionInput"
+           id="address_line1"
+           name="address_line1"
+           [(ngModel)]="model2.address.address_line1"
+           placeholder="address_line1">
+  </div>
+  <div class="form-group position">
+   
+    <input type="text"
+           class="form-control positionInput"
+           id="address_line2"
+           name="address_line2"
+           [(ngModel)]="model2.address.address_line2"
+           placeholder="address_line2">
+  </div>
+  <div class="form-group position">
+   
+    <input type="text"
+           class="form-control positionInput"
+           id="postal_code"
+           name="postal_code"
+           [(ngModel)]="model2.address.postal_code"
+           placeholder="postal_code">
+  </div>
+  <button>Update</button>
+</form> 
+</div> -->
+<router-outlet></router-outlet>
